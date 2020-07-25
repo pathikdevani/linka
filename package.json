@@ -1,0 +1,22 @@
+{
+  "name": "linkav2",
+  "version": "1.0.0",
+  "description": "",
+  "unpkg": "dist/linka.min.js",
+  "module": "dist/linka.mjs",
+  "main": "dist/linka.js",
+  "scripts": {
+    "build": "bundt",
+    "pretest": "npm run build",
+    "test": "uvu -r esm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bundt": "^1.0.2",
+    "esm": "^3.2.25",
+    "test": "^0.6.0",
+    "uvu": "^0.3.0"
+  }
+}
