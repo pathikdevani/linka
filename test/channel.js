@@ -1,19 +1,20 @@
 function Channel() {
-	const client = {
-		send: (data) => {
-			server.on(data);
-		}
-	};
-	const server = {
-		send: (data) => {
-			client.on(data);
-		}
-	};
+  let server = {};
+  const client = {
+    send: (data) => {
+      server.on(data);
+    },
+  };
+  server = {
+    send: (data) => {
+      client.on(data);
+    },
+  };
 
-	return {
-		client,
-		server,
-	};
+  return {
+    client,
+    server,
+  };
 }
 
 export default Channel;

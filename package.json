@@ -18,5 +18,10 @@
     "esm": "^3.2.25",
     "test": "^0.6.0",
     "uvu": "^0.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
   }
 }

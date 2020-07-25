@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "airbnb-base"
+  ],
+  "rules": {
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "consistent-return": 0,
+    "arrow-body-style": 0,
+    "max-len": 0,
+    "no-new": 0,
+    "line-break": 0,
+    "no-underscore-dangle": 0
+  },
+  "env": {
+    "node": true
+  }
+}
