@@ -8,16 +8,19 @@
   "scripts": {
     "build": "bundt",
     "pretest": "npm run build",
-    "test": "uvu -r esm test"
+    "test": "jest ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@jest/globals": "^26.1.0",
+    "babel-jest": "^26.1.0",
     "bundt": "^1.0.2",
-    "esm": "^3.2.25",
-    "test": "^0.6.0",
-    "uvu": "^0.3.0"
+    "jest": "^26.1.0",
+    "test": "^0.6.0"
   },
   "devDependencies": {
     "eslint": "^7.2.0",
