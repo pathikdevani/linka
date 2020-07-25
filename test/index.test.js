@@ -20,7 +20,7 @@ test('in process', async () => {
   });
 
   linkaServer.bind('test', async () => {
-    return 124;
+    return 1;
   });
 
   linkaServer.bind('getFullName', async (e) => {
@@ -28,10 +28,10 @@ test('in process', async () => {
   });
 
   const data = await linkaClient.request('test');
-  assert.is(data, 124);
+  assert.is(data, 1);
 
   const name = await linkaClient.request('getFullName', { fname: 'foo', lname: 'boo' });
-  console.log('Name', name);
+  assert.is(name, 'foo bar');
 });
 
 test.run();
