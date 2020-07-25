@@ -4,7 +4,8 @@
 
 Linka is low level communication module. It allows promise based communication on both ends. Using linka you can write wrapper in your application for specific socket, WebSocket, iframe stream.
 
-:boom: Its works on both Node and Browser.
+:boom: It's works on both Node and Browser.
+:muscle: Zero dependency
 
 
 This module exposes three module definitions:
@@ -16,8 +17,44 @@ This module exposes three module definitions:
 
 ## Install
 
-```
+```javascript
 $ npm install --save linka
+```
+
+
+## Example Linka Implementation for WebWorker
+UI side where we create worker instance
+```javascript
+import { Linka } from 'linka'
+
+const worker = new Worker('worker.js');
+const linka = new Linka(
+  (callback) => { worker.addEventListener('message', (e) => { callback(e.data); }); },
+  (data) => { worker.postMessage(data); },
+  { timeout: 1000 * 10 },
+);
+
+// call worker to get some data
+linka
+  .request('name', { fname: 'foo', lname: 'bar' })
+  .then((data) => { console.log(data); }); // foo bar
+
+```
+
+worker.js
+```javascript
+import { Linka } from 'linka'
+
+const self = {};
+const linka = new Linka(
+  (callback) => { self.addEventListener('message', (e) => { callback(e.data); }); },
+  (data) => { self.postMessage(data); },
+  { timeout: 1000 * 10 },
+);
+
+// bind event
+self.bind('name', async (e) => `${e.fname}-${e.lname}`);
+
 ```
 
 
