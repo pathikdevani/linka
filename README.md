@@ -25,7 +25,7 @@ $ npm install --save linka
 ## Example Linka Implementation for WebWorker
 UI side where we create worker instance
 ```javascript
-import { Linka } from 'linka'
+import { Linka } from 'linka';
 
 const worker = new Worker('worker.js');
 const linka = new Linka(
@@ -43,7 +43,7 @@ linka
 
 worker.js
 ```javascript
-import { Linka } from 'linka'
+import { Linka } from 'linka';
 
 const self = {};
 const linka = new Linka(
