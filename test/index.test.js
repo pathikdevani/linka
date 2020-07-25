@@ -30,7 +30,7 @@ test('in process', async () => {
   const data = await linkaClient.request('test');
   assert.is(data, 1);
 
-  const name = await linkaClient.request('getFullName', { fname: 'foo', lname: 'boo' });
+  const name = await linkaClient.request('getFullName', { fname: 'foo', lname: 'bar' });
   assert.is(name, 'foo bar');
 });
 
