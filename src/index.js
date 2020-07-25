@@ -5,7 +5,7 @@ function isFunction(fun) {
 const REQUEST = 0;
 const RESPONSE = 1;
 
-function Linka(on, send) {
+function Linka(on, send, options = {}) {
   if (!(isFunction(on) && isFunction(send))) {
     throw new Error('please pass proper function as argument!');
   }
@@ -13,6 +13,7 @@ function Linka(on, send) {
   let messageId = 0;
   const outgoing = {};
   const listeners = {};
+  const { timeout = 0 } = options;
 
   function getId() {
     messageId += 1;
@@ -20,9 +21,13 @@ function Linka(on, send) {
   }
 
   this.request = (key, data) => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const id = getId();
-      outgoing[id] = (e) => { resolve(e); };
+      const timer = setTimeout(() => {
+        delete outgoing[id];
+        reject(new Error('Timeout error!'));
+      }, timeout);
+      outgoing[id] = (e) => { resolve(e); clearTimeout(timer); };
       send({
         id,
         kind: REQUEST,
