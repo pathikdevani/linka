@@ -1,7 +1,7 @@
 {
   "name": "linka",
-  "version": "1.0.0",
-  "description": "Promise based low-level communication for two-way channel WebSocket/postMessage/RPC",
+  "version": "1.0.1-beta",
+  "description": "A tiny Promise based low-level communication for two way stream",
   "unpkg": "dist/linka.min.js",
   "module": "dist/linka.mjs",
   "main": "dist/linka.js",
