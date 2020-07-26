@@ -1,4 +1,4 @@
-# linka [![codecov](https://codecov.io/gh/pathikdevani/linka/branch/master/graph/badge.svg)](https://codecov.io/gh/pathikdevani/linka) [![GitHub license](https://img.shields.io/github/license/range-of-motion/budget.svg)](https://github.com/range-of-motion/budget/blob/master/LICENSE) ![build](https://github.com/pathikdevani/linka/workflows/CI/badge.svg)
+# linka [![codecov](https://codecov.io/gh/pathikdevani/linka/branch/master/graph/badge.svg)](https://codecov.io/gh/pathikdevani/linka) [![GitHub license](https://img.shields.io/github/license/range-of-motion/budget.svg)](https://github.com/pathikdevani/linka/blob/master/LICENSE) ![build](https://github.com/pathikdevani/linka/workflows/CI/badge.svg)
 
 > A tiny Promise based low-level communication for two way stream
 
