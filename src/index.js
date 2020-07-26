@@ -30,11 +30,16 @@ function Linka(on, send, options = {}) {
   this.request = (key, data) => {
     return new Promise((resolve, reject) => {
       const id = getId();
-      const timer = setTimeout(() => {
-        delete outgoing[id];
-        reject(new Error('Timeout error!'));
-      }, timeout);
-      outgoing[id] = (e) => { resolve(e); clearTimeout(timer); };
+      const isTimeout = timeout > 0;
+      let timer = null;
+      if (isTimeout) {
+        timer = setTimeout(() => {
+          delete outgoing[id];
+          reject(new Error('Timeout error!'));
+        }, timeout);
+      }
+
+      outgoing[id] = (e) => { if (timer) { clearTimeout(timer); } resolve(e); };
       send({
         id,
         kind: REQUEST,
@@ -51,13 +56,13 @@ function Linka(on, send, options = {}) {
 
   // to handle event and invoice listener(what we bind) and send response
   on((e) => {
-    if (e && e.id && e.kind === REQUEST) {
+    if (e && e.id && e.kind === RESPONSE) {
       const out = outgoing[e.id];
       if (out) {
         delete outgoing[e.id];
         out(e.data);
       }
-    } else if (e && e.id && e.kind === RESPONSE) {
+    } else if (e && e.id && e.kind === REQUEST) {
       const listener = listeners[e.key];
       if (listener) {
         listener(e.data)
