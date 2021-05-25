@@ -19,7 +19,7 @@
     "@jest/globals": "^26.1.0",
     "babel-jest": "^26.1.0",
     "bundt": "^1.0.2",
-    "jest": "^26.1.0",
+    "jest": "^27.0.1",
     "test": "^0.6.0"
   },
   "devDependencies": {
